@@ -42,7 +42,7 @@
               <div class="form-group">
                 <label for="name">Permissions</label>
                 <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="checkPermissionAll" value="1">
+                  <input type="checkbox" class="form-check-input" id="checkPermissionAll" value="1" {{ App\User::roleHasPermissions($role, $permissions) ? 'checked' : '' }} >
                   <label class="form-check-label" for="checkPermissionAll">All</label>
               </div>
               <hr>
@@ -64,7 +64,7 @@
                                         
                                         @foreach ($permissions as $permission)
                                             <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" name="permissions[]" {{$role->hasPermissionTo($permission->name) ? 'checked' : '' }} id="checkPermission{{ $permission->id }}" value="{{ $permission->name }}">
+                                                <input type="checkbox" class="form-check-input" onclick="checkSinglePermission('role-{{ $i }}-management-checkbox', '{{ $i }}Management', {{ count($permissions) }})" name="permissions[]" {{$role->hasPermissionTo($permission->name) ? 'checked' : '' }} id="checkPermission{{ $permission->id }}" value="{{ $permission->name }}">
                                                 <label class="form-check-label" for="checkPermission{{ $permission->id }}">{{ $permission->name }}</label>
                                             </div>
                                             @php  $j++; @endphp

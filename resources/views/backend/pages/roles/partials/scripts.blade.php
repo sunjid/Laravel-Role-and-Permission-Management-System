@@ -20,4 +20,17 @@
             classCheckBox.prop('checked', false);
         }
     }
+    
+    //
+    function checkSinglePermission(groupClassName, groupID, countTotalPermission) {
+        const classCheckbox = $('.'+groupClassName+ ' input');
+        const groupIDCheckBox = $("#"+groupID);
+        // if there is any occurance where something is not selected then make selected = false
+        if($('.'+groupClassName+ ' input:checked').length == countTotalPermission){
+            groupIDCheckBox.prop('checked', true);
+        }else{
+            groupIDCheckBox.prop('checked', false);
+        }
+        implementAllChecked();
+     }
 </script>
