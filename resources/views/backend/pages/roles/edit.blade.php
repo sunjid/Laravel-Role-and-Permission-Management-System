@@ -101,7 +101,4 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('backend/assets/dist/js/demo.js') }}" type="text/javascript"></script>
 @endsection
-
-@section('scripts')
 @include('backend.pages.roles.partials.scripts');
-@endsection
